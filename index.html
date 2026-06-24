@@ -24,6 +24,7 @@
   --gold-soft: #FBF4E3;
   --radius: 12px;
   --max-width: 1050px;
+  --success: #16A34A;
 }
 
 body {
@@ -97,7 +98,7 @@ body {
 .accordion-content ul { padding: 15px 20px; list-style-type: square; }
 .accordion-content li { font-size: 0.9rem; color: #334155; margin-bottom: 6px; }
 
-/* CONTAINER PLANES Y CRITERIOS */
+/* GRID GENERAL */
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 20px; margin-top: 15px; }
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.01); }
 .card h3 { font-family: 'Playfair Display', serif; color: var(--navy); margin-bottom: 10px; font-size: 1.25rem; }
@@ -121,6 +122,8 @@ tr:hover { background: #F8FAFC; }
 .btn-primary:hover { background: #06162c; }
 .btn-secondary { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
 .btn-secondary:hover { background: rgba(13, 43, 85, 0.05); }
+.btn-card { font-size: 0.85rem; font-weight: 600; color: var(--gold); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.btn-card:hover { text-decoration: underline; }
 
 @media (max-width: 768px) {
   .hero-body { padding: 25px 20px; text-align: center; }
@@ -138,9 +141,10 @@ tr:hover { background: #F8FAFC; }
     <ul class="nav-links">
       <li><a href="#perfil">Perfil</a></li>
       <li><a href="#servicios">Portafolio</a></li>
-      <li><a href="#planes">Planes Corporativos</a></li>
+      <li><a href="#planes">Planes</a></li>
+      <li><a href="#obligados">Obligados Renta</a></li>
+      <li><a href="#herramientas">Herramientas</a></li>
       <li><a href="#calendario">Calendario 2026</a></li>
-      <li><a href="#facturacion">Facturación Obligatoria</a></li>
     </ul>
   </div>
 </nav>
@@ -168,7 +172,6 @@ tr:hover { background: #F8FAFC; }
 <section class="section" id="servicios">
   <h2 class="section-title">Portafolio de Servicios Especializados</h2>
   <div class="accordion">
-    
     <div class="accordion-item">
       <div class="accordion-header" onclick="toggleAcc(this)">1. Servicios Tributarios y Fiscales <span>+</span></div>
       <div class="accordion-content">
@@ -182,7 +185,6 @@ tr:hover { background: #F8FAFC; }
         </ul>
       </div>
     </div>
-
     <div class="accordion-item">
       <div class="accordion-header" onclick="toggleAcc(this)">2. Defensa Tributaria y Procesos DIAN <span>+</span></div>
       <div class="accordion-content">
@@ -194,7 +196,6 @@ tr:hover { background: #F8FAFC; }
         </ul>
       </div>
     </div>
-
     <div class="accordion-item">
       <div class="accordion-header" onclick="toggleAcc(this)">3. Consultoría y Soluciones Corporativas de Alto Valor <span>+</span></div>
       <div class="accordion-content">
@@ -206,7 +207,6 @@ tr:hover { background: #F8FAFC; }
         </ul>
       </div>
     </div>
-
     <div class="accordion-item">
       <div class="accordion-header" onclick="toggleAcc(this)">4. Áreas de Respaldo Jurídico (Servicios con Equipo Aliado) <span>+</span></div>
       <div class="accordion-content">
@@ -216,7 +216,6 @@ tr:hover { background: #F8FAFC; }
         </ul>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -257,10 +256,53 @@ tr:hover { background: #F8FAFC; }
   </div>
 </section>
 
-<!-- CALENDARIO TRIBUTARIO 2026 -->
+<!-- NUEVA SECCIÓN: OBLIGADOS A DECLARAR RENTA PERSONAS NATURALES AG 2025 -->
+<section class="section" id="obligados">
+  <h2 class="section-title">¿Quiénes están obligados a presentar Declaración de Renta AG 2025 en el 2026?</h2>
+  <p style="font-size:0.9rem; color:var(--muted); margin-bottom:15px;">Estarán obligados a presentar la declaración todos los residentes fiscales que cumplan con <b>al menos uno</b> de los siguientes topes evaluados sobre el año completo 2025:</p>
+  <div class="grid">
+    <div class="card" style="border-left: 4px solid var(--gold);">
+      <h3>Por Patrimonio Bruto</h3>
+      <ul>
+        <li>Patrimonio bruto (bienes, vehículos, ahorros, predios) igual o superior a <b>$224.095.500</b> al 31 de diciembre de 2025.</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left: 4px solid var(--navy);">
+      <h3>Por Movimientos Financieros e Ingresos</h3>
+      <ul>
+        <li>Ingresos totales del año iguales o superiores a <b>$69.718.600</b>.</li>
+        <li>Consumos totales con tarjeta de crédito iguales o superiores a <b>$69.718.600</b>.</li>
+        <li>Compras y consumos totales en el año iguales o superiores a <b>$69.718.600</b>.</li>
+        <li>Consignaciones bancarias, depósitos o inversiones financieras totales iguales o superiores a <b>$69.718.600</b>.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- HERRAMIENTAS DIGITALES -->
+<section class="section" id="herramientas">
+  <h2 class="section-title">Herramientas de Diagnóstico Digital</h2>
+  <p style="color: var(--muted); margin-bottom: 24px; font-size: 0.95rem;">Sistemas diseñados para automatizar la evaluación inicial de la situación fiscal de mis clientes:</p>
+  <div class="grid">
+    <div class="card">
+      <span class="card-icon">⚖️</span>
+      <h3>Simulador de Obligatoriedad - Renta</h3>
+      <p>Evalúa de forma automática si superas los topes de ley vigentes para presentar declaración ante la DIAN.</p>
+      <a href="https://jimmylopez-contadorpublico.github.io/OBLIGADOS-RENTAS-2025/" target="_blank" class="btn-card">Ejecutar simulador →</a>
+    </div>
+    <div class="card">
+      <span class="card-icon">📋</span>
+      <h3>Lista de Chequeo Interactiva</h3>
+      <p>Organiza e identifica los soportes documentales obligatorios y opcionales necesarios para procesar la declaración según tu tipo de cédula.</p>
+      <a href="https://jimmylopez-contadorpublico.github.io/DOCUMENTOS-PARA-RENTA-2025/" target="_blank" class="btn-card">Abrir lista de chequeo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CALENDARIO TRIBUTARIO 2026 (MOVIDO AL FINAL) -->
 <section class="section" id="calendario">
   <h2 class="section-title">Calendario Tributario 2026 (Renta Personas Naturales)</h2>
-  <p style="font-size:0.85rem; color:var(--muted); margin-bottom:12px;">Fechas límite de presentación según los dos últimos dígitos de la cédula/NIT (Año Gravable 2025):</p>
+  <p style="font-size:0.85rem; color:var(--muted); margin-bottom:12px;">Fechas límite de presentación según los dos últimos dígitos de la cédula o NIT (Año Gravable 2025):</p>
   <div class="table-wrapper">
     <table>
       <thead>
@@ -294,28 +336,6 @@ tr:hover { background: #F8FAFC; }
         <tr><td>49 y 50</td><td>Septiembre 16</td><td>99 y 00</td><td>Octubre 26</td></tr>
       </tbody>
     </table>
-  </div>
-</section>
-
-<!-- CRITERIOS FACTURACIÓN ELECTRÓNICA -->
-<section class="section" id="facturacion">
-  <h2 class="section-title">¿Quiénes están obligados a Facturar Electrónicamente?</h2>
-  <div class="grid">
-    <div class="card" style="border-left: 4px solid var(--gold);">
-      <h3>Por Régimen Legal</h3>
-      <ul>
-        <li>Todas las Personas Jurídicas (Sociedades S.A.S., S.A., Ltda, etc.).</li>
-        <li>Personas naturales inscritas en el Régimen SIMPLE de Tributación (RST).</li>
-        <li>Comerciantes, artesanos o tipógrafos que ostenten la calidad de responsables de IVA.</li>
-      </ul>
-    </div>
-    <div class="card" style="border-left: 4px solid var(--navy);">
-      <h3>Por Topes de Ingresos (Personas Naturales)</h3>
-      <ul>
-        <li>No responsables de IVA cuyos ingresos brutos del año anterior o en curso superen las <b>3.500 UVT</b> ($164.927.000 para el año base).</li>
-        <li>Contribuyentes con más de un establecimiento de comercio o explotación de intangibles (franquicias, regalías).</li>
-      </ul>
-    </div>
   </div>
 </section>
 
