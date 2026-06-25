@@ -383,13 +383,17 @@ function toggleAcc(header) {
 }
 </script>
   <!-- SCRIPT DE TRADUCCIÓN INTERNACIONAL (ES | EN) -->
+<!-- SCRIPT DE TRADUCCIÓN INTERNACIONAL GLOBAL (ES | EN) -->
 <script>
   function changeLang(lang) {
     const btnEs = document.getElementById('btn-es');
     const btnEn = document.getElementById('btn-en');
     
+    // Elementos del menú de navegación
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
     if (lang === 'en') {
-      // Cambiar estilos de los botones
+      // Estilos de botones activos
       btnEn.style.background = '#c9a84c';
       btnEn.style.color = '#06221d';
       btnEn.style.opacity = '1';
@@ -397,12 +401,39 @@ function toggleAcc(header) {
       btnEs.style.color = '#ffffff';
       btnEs.style.opacity = '0.7';
 
-      // Traducción de la tarjeta principal
+      // 1. MENU DE NAVEGACIÓN
+      if(navLinks.length >= 6) {
+        navLinks[0].innerText = 'Profile';
+        navLinks[1].innerText = 'Portfolio';
+        navLinks[2].innerText = 'Plans';
+        navLinks[3].innerText = 'Tax Requirements';
+        navLinks[4].innerText = 'Tools';
+        navLinks[5].innerText = '2026 Calendar';
+      }
+
+      // 2. TARJETA DE PRESENTACIÓN PRINCIPAL
       document.querySelector('#perfil p:nth-of-type(1)').innerText = 'Corporate Legal & Tax Consulting';
       document.querySelector('#perfil p:nth-of-type(2)').innerText = 'Public Accountant & Tax Law Specialist';
       document.querySelector('#perfil div:nth-of-type(2)').innerText = 'High-value tax structuring, mitigation of penalty risks before DIAN, and legal asset optimization. Integrated technical management with external legal support to provide complete shielding for your business or personal wealth.';
       document.querySelector('#perfil a[target="_blank"]').innerHTML = '💼 Contact via WhatsApp';
       document.querySelector('#perfil a[href^="mailto"]').innerHTML = '✉️ Email Us';
+      
+      // 3. TÍTULOS DE LAS SECCIONES DE ABAJO
+      const titles = document.querySelectorAll('.section-title');
+      titles.forEach(title => {
+        const text = title.innerText.trim();
+        if(text.includes('Portafolio')) title.innerText = 'Professional Portfolio';
+        if(text.includes('Planes')) title.innerText = 'Service Plans';
+        if(text.includes('Obligados')) title.innerText = 'Income Tax Requirements';
+        if(text.includes('Herramientas')) title.innerText = 'Digital Diagnostic Tools';
+      });
+
+      // 4. FRASE DE LAS HERRAMIENTAS DE DIAGNÓSTICO
+      const herramientasSec = document.getElementById('herramientas');
+      if(herramientasSec) {
+        const pDesc = herramientasSec.querySelector('p');
+        if(pDesc) pDesc.innerText = 'Systems designed to automate the initial assessment of corporate and personal tax situations:';
+      }
       
     } else {
       // Revertir a Español
@@ -413,14 +444,42 @@ function toggleAcc(header) {
       btnEn.style.color = '#ffffff';
       btnEn.style.opacity = '0.7';
 
-      // Textos originales en Español
+      // 1. MENU DE NAVEGACIÓN
+      if(navLinks.length >= 6) {
+        navLinks[0].innerText = 'Perfil';
+        navLinks[1].innerText = 'Portafolio';
+        navLinks[2].innerText = 'Análisis';
+        navLinks[3].innerText = 'Obligados Renta';
+        navLinks[4].innerText = 'Herramientas';
+        navLinks[5].innerText = 'Calendario 2026';
+      }
+
+      // 2. TARJETA DE PRESENTACIÓN PRINCIPAL
       document.querySelector('#perfil p:nth-of-type(1)').innerText = 'Consultoría Legal y Fiscal Corporativa';
       document.querySelector('#perfil p:nth-of-type(2)').innerText = 'Contador Público & Especialista en Derecho Tributario';
       document.querySelector('#perfil div:nth-of-type(2)').innerText = 'Estructuración fiscal de alto valor, mitigación de riesgos sancionatorios ante la DIAN y optimización patrimonial legal. Dirección técnica integrada con soporte legal externo para brindar blindaje total a su empresa o patrimonio personal.';
       document.querySelector('#perfil a[target="_blank"]').innerHTML = '💼 Contactar vía WhatsApp';
       document.querySelector('#perfil a[href^="mailto"]').innerHTML = '✉️ Correo Electrónico';
+      
+      // 3. TÍTULOS DE LAS SECCIONES
+      const titles = document.querySelectorAll('.section-title');
+      titles.forEach(title => {
+        const text = title.innerText.trim();
+        if(text.includes('Portfolio')) title.innerText = 'Portafolio de Servicios';
+        if(text.includes('Plans')) title.innerText = 'Planes de Servicios';
+        if(text.includes('Requirements')) title.innerText = 'Obligados a Declarar Renta';
+        if(text.includes('Tools')) title.innerText = 'Herramientas de Diagnóstico Digital';
+      });
+
+      // 4. FRASE DE LAS HERRAMIENTAS DE DIAGNÓSTICO
+      const herramientasSec = document.getElementById('herramientas');
+      if(herramientasSec) {
+        const pDesc = herramientasSec.querySelector('p');
+        if(pDesc) pDesc.innerText = 'Sistemas diseñados para automatizar la evaluación inicial de la situación fiscal corporativa y personal:';
+      }
     }
   }
+</script>
 </script>
 </body>
 </html>
