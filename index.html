@@ -146,6 +146,11 @@ tr:hover { background: #F8FAFC; }
       <li><a href="#herramientas">Herramientas</a></li>
       <li><a href="#calendario">Calendario 2026</a></li>
     </ul>
+    <!-- BOTONES SELECTORES DE IDIOMA (ESPAÑOL / INGLÉS) -->
+        <div class="lang-selector" style="display: inline-flex; gap: 8px; margin-left: 20px; align-items: center; background: rgba(201, 168, 76, 0.2); padding: 4px 10px; border-radius: 20px; border: 1px solid #c9a84c;">
+          <button type="button" onclick="changeLang('es')" id="btn-es" style="background: #c9a84c; color: #06221d; border: none; padding: 3px 8px; font-size: 0.75rem; font-weight: 600; border-radius: 12px; cursor: pointer; transition: 0.3s;">ES</button>
+          <button type="button" onclick="changeLang('en')" id="btn-en" style="background: transparent; color: #ffffff; border: none; padding: 3px 8px; font-size: 0.75rem; font-weight: 600; border-radius: 12px; cursor: pointer; transition: 0.3s; opacity: 0.7;">EN</button>
+        </div>
   </div>
 </nav>
 
@@ -376,6 +381,46 @@ function toggleAcc(header) {
     span.textContent = '−';
   }
 }
+</script>
+  <!-- SCRIPT DE TRADUCCIÓN INTERNACIONAL (ES | EN) -->
+<script>
+  function changeLang(lang) {
+    const btnEs = document.getElementById('btn-es');
+    const btnEn = document.getElementById('btn-en');
+    
+    if (lang === 'en') {
+      // Cambiar estilos de los botones
+      btnEn.style.background = '#c9a84c';
+      btnEn.style.color = '#06221d';
+      btnEn.style.opacity = '1';
+      btnEs.style.background = 'transparent';
+      btnEs.style.color = '#ffffff';
+      btnEs.style.opacity = '0.7';
+
+      // Traducción de la tarjeta principal
+      document.querySelector('#perfil p:nth-of-type(1)').innerText = 'Corporate Legal & Tax Consulting';
+      document.querySelector('#perfil p:nth-of-type(2)').innerText = 'Public Accountant & Tax Law Specialist';
+      document.querySelector('#perfil div:nth-of-type(2)').innerText = 'High-value tax structuring, mitigation of penalty risks before DIAN, and legal asset optimization. Integrated technical management with external legal support to provide complete shielding for your business or personal wealth.';
+      document.querySelector('#perfil a[target="_blank"]').innerHTML = '💼 Contact via WhatsApp';
+      document.querySelector('#perfil a[href^="mailto"]').innerHTML = '✉️ Email Us';
+      
+    } else {
+      // Revertir a Español
+      btnEs.style.background = '#c9a84c';
+      btnEs.style.color = '#06221d';
+      btnEs.style.opacity = '1';
+      btnEn.style.background = 'transparent';
+      btnEn.style.color = '#ffffff';
+      btnEn.style.opacity = '0.7';
+
+      // Textos originales en Español
+      document.querySelector('#perfil p:nth-of-type(1)').innerText = 'Consultoría Legal y Fiscal Corporativa';
+      document.querySelector('#perfil p:nth-of-type(2)').innerText = 'Contador Público & Especialista en Derecho Tributario';
+      document.querySelector('#perfil div:nth-of-type(2)').innerText = 'Estructuración fiscal de alto valor, mitigación de riesgos sancionatorios ante la DIAN y optimización patrimonial legal. Dirección técnica integrada con soporte legal externo para brindar blindaje total a su empresa o patrimonio personal.';
+      document.querySelector('#perfil a[target="_blank"]').innerHTML = '💼 Contactar vía WhatsApp';
+      document.querySelector('#perfil a[href^="mailto"]').innerHTML = '✉️ Correo Electrónico';
+    }
+  }
 </script>
 </body>
 </html>
